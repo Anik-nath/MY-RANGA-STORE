@@ -79,7 +79,7 @@ body {
   width: 100%; 
   height: 100vh;
   z-index: 1000;
-  background-color: rgba(0, 0, 0, 0.39);
+  background-color: rgba(0, 0, 0, 0.5);
   display: none;
 }
 .detailsContainer{
@@ -92,6 +92,7 @@ body {
 .details{
   width: 50%;
   padding: 20px;
+  border-radius: 10px;
 }
 /* responsive  query */
 @media only screen and (max-width: 768px) {

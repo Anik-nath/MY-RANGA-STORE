@@ -104,9 +104,9 @@ const moreDetails = (data) =>{
   div.innerHTML = `
     <div class="bg-primary details"">
       <h2 id="productDetails">${data.title}</h2>
-      <h4 id="productDetails">$ ${data.price}</h4>
-      <p id="productDetails">${data.description}</p>
-      <button onclick="closeFunc()" class="btn btn-danger" id="close">Close</button>
+      <h3 style="color: yellow;" id="productDetails">$ ${data.price}</h3>
+      <p class="text-justify" id="productDetails">${data.description}</p>
+      <button onclick="closeFunc()" class="btn btn-danger" id="close">Close X</button>
       <p></p>
     </div>
   `;
