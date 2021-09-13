@@ -51,13 +51,11 @@ const updatePrice = (id, value) => {
   const convertedOldPrice = getInputValue(id);
   const convertPrice = parseFloat(value);
   const total = convertedOldPrice + convertPrice;
-  // document.getElementById(id).innerText = Math.round(total);
   document.getElementById(id).innerText = total.toFixed(2);
 };
 
 // set innerText function
 const setInnerText = (id, value) => {
-  // document.getElementById(id).innerText = Math.round(value);
   document.getElementById(id).innerText = value.toFixed(2);
 };
 
@@ -85,9 +83,9 @@ const updateTotal = () => {
     getInputValue("total-tax");
     document.getElementById("total").innerText = grandTotal.toFixed(2);
 };
-// single product
-const singleProduct =(x)=>{
-  const productid = x;
+// single product details
+const singleProduct =(id)=>{
+  const productid = id;
   fetch(`https://fakestoreapi.com/products/${productid}`)
   .then(res=>res.json())
   .then(json=>moreDetails(json))
@@ -98,7 +96,6 @@ const bt = document.getElementById('close');
 const detailsContainer =  document.getElementById('detailsContainer');
 
 const moreDetails = (data) =>{
-  console.log(data)
   // modal
   modalBackground.style.display = 'block';
   modalBackground.innerHTML = '';
