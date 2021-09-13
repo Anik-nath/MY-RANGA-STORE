@@ -93,27 +93,29 @@ const singleProduct =(x)=>{
   .then(json=>moreDetails(json))
 }
 
-const hi = document.getElementById('hi');
+const modalBackground = document.getElementById('modalBackground');
 const bt = document.getElementById('close');
 const detailsContainer =  document.getElementById('detailsContainer');
 
 const moreDetails = (data) =>{
-  console.log(data);
+  console.log(data)
   // modal
-  hi.style.display = 'block';
-  hi.innerHTML = '';
+  modalBackground.style.display = 'block';
+  modalBackground.innerHTML = '';
   const div = document.createElement('div');
   div.classList.add('detailsContainer');
   div.innerHTML = `
-    <div class="bg-primary" style="width: 50%;">
-      <h3 id="productDetails">${data.title}</h3>
-      <p id="productDetails">$ ${data.price}</p>
+    <div class="bg-primary details"">
+      <h2 id="productDetails">${data.title}</h2>
+      <h4 id="productDetails">$ ${data.price}</h4>
       <p id="productDetails">${data.description}</p>
-      <button class="btn btn-danger" id="close">close</button>
+      <button onclick="closeFunc()" class="btn btn-danger" id="close">Close</button>
+      <p></p>
     </div>
   `;
-  hi.appendChild(div);
+  modalBackground.appendChild(div);
 }
-// bt.addEventListener('click',function(){
-//   hi.style.display = 'none'
-// })
+function closeFunc(){
+  modalBackground.style.display = 'none'
+}
+

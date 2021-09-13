@@ -17,7 +17,7 @@ body {
   width: 281px;
   border-radius: 5px;
   margin: auto;
-  margin-top: 50px;
+  margin-top: 20px;
   border-right: none;
   display: flex;
   justify-content: space-between;
@@ -74,7 +74,29 @@ body {
 .cart-main {
   padding-right: 30px;
 }
-
+/* modal */
+#modalBackground{
+  position: fixed;
+  text-align: center;
+  top: 0;
+  width: 100%; 
+  height: 100vh;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.39);
+  display: none;
+}
+.detailsContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 12px 0px;
+}
+.details{
+  width: 50%;
+  padding: 20px;
+}
+/* responsive  query */
 @media only screen and (max-width: 768px) {
   #all-products {
     display: grid;
