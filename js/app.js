@@ -19,21 +19,24 @@ const showProducts = (products) => {
       </div>
       <h3>${product.title}</h3>
       <p>Category: ${product.category}</p>
+      <h4 class="h3 text-success">Rating: ${product.rating.rate}<sub class="h6">/5</sub></h4>
+      <p>Total: ${product.rating.count} ratings</p>
       <h2>Price: $ ${product.price}</h2>
+
       <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
-      <button id="details-btn" class="btn btn-danger">Details</button></div>
+
+      <button onclick="singleProduct(${product.id})" id="details-btn" class="btn btn-danger">Details</button></div>
       `;
     document.getElementById("all-products").appendChild(div);
   }
+  
 };
 let count = 0;
 const addToCart = (id, price) => {
   count = count + 1;
   updatePrice("price", price);
-
   updateTaxAndCharge();
   document.getElementById("total-Products").innerText = count;
-
   updateTotal();
 };
 
@@ -61,7 +64,6 @@ const setInnerText = (id, value) => {
 // update delivery charge and total Tax
 const updateTaxAndCharge = () => {
   const priceConverted = getInputValue("price");
-  console.log(priceConverted,typeof priceConverted)
   if (priceConverted > 200) {
     setInnerText("delivery-charge", 30);
     setInnerText("total-tax", priceConverted * 0.2);
@@ -83,4 +85,35 @@ const updateTotal = () => {
     getInputValue("total-tax");
     document.getElementById("total").innerText = grandTotal.toFixed(2);
 };
+// single product
+const singleProduct =(x)=>{
+  const productid = x;
+  fetch(`https://fakestoreapi.com/products/${productid}`)
+  .then(res=>res.json())
+  .then(json=>moreDetails(json))
+}
 
+const hi = document.getElementById('hi');
+const bt = document.getElementById('close');
+const detailsContainer =  document.getElementById('detailsContainer');
+
+const moreDetails = (data) =>{
+  console.log(data);
+  // modal
+  hi.style.display = 'block';
+  hi.innerHTML = '';
+  const div = document.createElement('div');
+  div.classList.add('detailsContainer');
+  div.innerHTML = `
+    <div class="bg-primary" style="width: 50%;">
+      <h3 id="productDetails">${data.title}</h3>
+      <p id="productDetails">$ ${data.price}</p>
+      <p id="productDetails">${data.description}</p>
+      <button class="btn btn-danger" id="close">close</button>
+    </div>
+  `;
+  hi.appendChild(div);
+}
+// bt.addEventListener('click',function(){
+//   hi.style.display = 'none'
+// })

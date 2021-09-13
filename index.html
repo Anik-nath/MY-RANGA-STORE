@@ -16,12 +16,36 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
 </head>
-
-<body>
+<style>
+  #hi{
+    position: fixed;
+    text-align: center;
+    top: 0;
+    width: 100%; 
+    z-index: 1000;
+    background-color: rgba(182, 24, 24, 0.424);
+    display: none;
+  }
+  .detailsContainer{
+    display: flex;
+    justify-content: center;
+    padding: 12px 0px;
+  }
+</style>
+<body> 
+  
   <header>
     <h1 class="text-center"><span class="text-primary">Ranga</span> Online Store</h1>
   </header>
   <main class="main">
+    <div id="hi" style="height: 100px;">
+      <!-- <div id="detailsContainer">
+        <div class="bg-info" style="width: 50%;">
+          <p id="productDetails">details</p>
+          <button id="close">close</button>
+        </div>
+      </div> -->
+    </div>
     <div class="search-field">
       <div class="search-box">
         <input id="input-field" class="search-field" type="text" />
